@@ -3,6 +3,7 @@ package remote;
 import java.util.Scanner;
 
 import vendors.Television;
+import bin.vendors.Light;
 
 /**
  * Library of methods to create specific types of remotes.
@@ -17,17 +18,19 @@ public class RemoteGenerators
      * @param userInput a method of getting input when subscribing or unsubsrcibing to channels.
      * @return the created remote.
      */
+
+    public static Remote lightRemote(Light light, Scanner userInput)
+    {
+        Remote lightRemote = new Remote(2);
+        lightRemote.setButton(new ColorForward(light), 1);
+        return lightRemote;
+    }
+
     public static Remote tvRemote(Television tv, Scanner userInput)
     {
-        Remote tvRemote = new Remote(8);
-        tvRemote.setButton(new Power(tv), 0);
-        tvRemote.setButton(new ChannelListing(tv), 1);
-        tvRemote.setButton(new VolumeUp(tv), 2);
-        tvRemote.setButton(new VolumeDown(tv), 3);
-        tvRemote.setButton(new ChannelForward(tv), 4);
-        tvRemote.setButton(new ChannelBackward(tv), 5);
-        tvRemote.setButton(new Subscribe(tv, userInput), 6);
-        tvRemote.setButton(new Unsubscribe(tv, userInput), 7);
+        Remote tvRemote = new Remote(2);
+        tvRemote.setButton(new ChannelForward(tv), 1);
+        tvRemote.setButton(new ChannelBackward(tv), 1);
         return tvRemote;
     }
 }

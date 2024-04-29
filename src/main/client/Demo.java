@@ -3,7 +3,9 @@ import java.util.Scanner;
 
 import remote.Remote;
 import remote.RemoteGenerators;
-import vendors.Television;
+
+import bin.vendors.Light;
+//import bin.vendors.Television;
 
 public class Demo
 {
@@ -15,8 +17,9 @@ public class Demo
     public static void main(String[] args)
     {
         Scanner kb = new Scanner(System.in);
-        Television tv = new Television(100);
-        Remote remote = RemoteGenerators.tvRemote(tv, kb);
+       // Television tv = new Television(100);
+        Light light = new Light(100);
+        Remote remote = RemoteGenerators.lightRemote(light, kb);
         remoteDemo(remote, kb);
     }
 
